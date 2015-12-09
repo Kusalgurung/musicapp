@@ -1,3 +1,22 @@
-en:
-  app_title: Music Application 
-  app_description: A place to keep all your music 
+en: 
+  app_description: "A place to keep all your music"
+  app_title: "Musify"
+  home: 
+    home: 
+      title: Musify
+      welcome: "Welcome to the application!"
+    contact: 
+      contact_us: "Complete the following form to get in touch with us."
+      email: "Email:"
+      enter_email: Enter your email address
+      enter_message: What do you want to say?
+      enter_name: Enter your name
+      enter_telephone: Enter your telephone number
+      message: "Message:"
+      name: "Name:"
+      submit: Contact Us
+      telephone: "Telephone:"
+      title: Contact Us
+    request_contact:
+      no_email: You must supply an email address!
+      email_sent: Thank you. We will be in touch shortly.
