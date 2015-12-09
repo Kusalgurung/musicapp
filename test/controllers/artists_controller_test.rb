@@ -12,7 +12,7 @@ class ArtistsControllerTest < ActionController::TestCase
   end
 
   test "should get new" do
-    get :new
+    get :new, artist_id: @artist
     assert_response :success
   end
 

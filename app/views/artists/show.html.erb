@@ -10,5 +10,7 @@
   <%= @artist.biography %>
 </p>
 
+<%= link_to 'Add Album', new_album_path(artist_id: @artist) %>
+
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
