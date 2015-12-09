@@ -1,16 +1,24 @@
 <p id="notice"><%= notice %></p>
-
 <p>
   <strong>Title:</strong>
   <%= @artist.title %>
 </p>
-
 <p>
   <strong>Biography:</strong>
   <%= @artist.biography %>
 </p>
-
-<%= link_to 'Add Album', new_album_path(artist_id: @artist) %>
-
+<p> Albums: </p>
+<table>
+	<% @artist.albums.each do |album| %>
+	  <tr>
+	  	<%{id: "album_#{album.id}"}%>
+		<td><%= album.title %></td>
+		<td><%= link_to 'Show',album %></td>
+		<td><%= link_to 'Edit', edit_album_path(album) %></td>
+		<td><%= link_to 'Destroy',album, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+	  </tr>
+	  <%end%>
+</table> 
+<p><%= link_to 'Add Album', new_album_path(artist_id: @artist) %></p>
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
 <%= link_to 'Back', artists_path %>
