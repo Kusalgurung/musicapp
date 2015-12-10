@@ -6,3 +6,13 @@
 %h1= t('.title')
 %p= t('.welcome')
 
+%p List of Albums: 
+%table
+	%tbody
+		- @albums.each do |album| 
+			%tr
+				%td= album.title 
+				%td= link_to 'Show',album 
+				
+		  
+

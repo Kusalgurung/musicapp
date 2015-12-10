@@ -58,7 +58,7 @@ class AlbumsController < ApplicationController
     @album.destroy
     respond_to do |format|
       format.html { redirect_to albums_url, notice: 'Album was successfully destroyed.' }
-      format.js { flash[:notice] = 'Task was successfully destroyed.'}
+      format.js { flash[:notice] = 'Album was successfully destroyed.'}
       format.json { head :no_content }
     end
   end

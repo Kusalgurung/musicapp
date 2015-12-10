@@ -57,6 +57,7 @@ class TracksController < ApplicationController
     @track.destroy
     respond_to do |format|
       format.html { redirect_to tracks_url, notice: 'Track was successfully destroyed.' }
+      format.js { flash[:notice] = 'Track was successfully destroyed.'}
       format.json { head :no_content }
     end
   end

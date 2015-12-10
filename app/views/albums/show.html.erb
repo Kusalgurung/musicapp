@@ -10,6 +10,17 @@
   <%= @album.title %>
 </p>
 
+<table>
+	<% @album.tracks.each do |track| %>
+	  <tr id='<%="track_#{track.id}"%>'>
+		<td><%= track.title %></td>
+		<td><%= link_to 'Show',track %></td>
+		<td><%= link_to 'Edit', edit_track_path(track) %></td>
+		<td><%= link_to 'Destroy',track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+	  </tr>
+	  <%end%>
+</table> 
+
 <%= link_to 'Add Track', new_track_path(album_id: @album) %> |
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>
