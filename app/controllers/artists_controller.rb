@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all
+    @artists = Artist.all.order("created_at DESC")
   end
 
   # GET /artists/1

@@ -13,7 +13,7 @@
 <table>
 	<% @album.tracks.each do |track| %>
 	  <tr id='<%="track_#{track.id}"%>'>
-		<td><%= track.title %></td>
+		<td><%= link_to track.title, track %></td>
 		<td><%= link_to 'Show',track %></td>
 		<td><%= link_to 'Edit', edit_track_path(track) %></td>
 		<td><%= link_to 'Destroy',track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>

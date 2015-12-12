@@ -4,7 +4,7 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = Track.all.order("created_at DESC")
   end
 
   # GET /tracks/1
