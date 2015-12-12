@@ -1,8 +1,3 @@
-= link_to 'Artists', artists_path 
-= link_to 'Albums', albums_path 
-= link_to 'Tracks', tracks_path 
-= link_to 'Contact Us', contact_path 
-
 %h1= t('.title')
 %p= t('.welcome')
 
@@ -12,7 +7,7 @@
 		- @albums.each do |album| 
 			%tr
 				%td= album.title 
-				%td= link_to 'Show',album 
+				%td= link_to t('.show'),album 
 				
 		  
 

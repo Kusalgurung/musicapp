@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Artist</th>
       <th>Album</th>
       <th>Title</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @tracks.each do |track| %>
       <tr>
+        <td><%= track.album.artist.title %></td>
         <td><%= track.album.title %></td>
         <td><%= track.title %></td>
         <td><%= link_to 'Show', track %></td>

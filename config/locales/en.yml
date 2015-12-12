@@ -4,7 +4,8 @@ en:
   home: 
     home: 
       title: Musify
-      welcome: "Welcome to the application!"
+      welcome: "A place to keep and share your music collection!"
+      show: Show
     contact: 
       contact_us: "Complete the following form to get in touch with us."
       email: "Email:"
