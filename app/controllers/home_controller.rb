@@ -1,7 +1,10 @@
 class HomeController < ApplicationController
   
   def home
-    @albums = Album.all;
+    @tracks = Track.all;
+    @albums = Album.all
+    @artists = Artist.all
+
   end
 
   def contact
