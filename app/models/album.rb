@@ -5,6 +5,6 @@ class Album < ActiveRecord::Base
   validates :title, presence: true
   validates :title, uniqueness: true
 
-  has_attached_file :album_img, styles: { artist_index: "150x250>", album_show: "225x375>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :album_img, styles: { album_index: "150x250>", album_show: "225x375>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :album_img, content_type: /\Aimage\/.*\Z/
 end

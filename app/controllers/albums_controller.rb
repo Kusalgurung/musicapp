@@ -1,6 +1,7 @@
 class AlbumsController < ApplicationController
   before_action :set_album, only: [:show, :edit, :update, :destroy]
   before_action :set_artist, only: [:new, :create]
+  before_action :authenticate_user!
 
   # GET /albums
   # GET /albums.json
@@ -71,7 +72,7 @@ class AlbumsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def album_params
-      params.require(:album).permit(:artist_id, :title)
+      params.require(:album).permit(:artist_id, :title, :album_img)
     end
 
     def set_artist
