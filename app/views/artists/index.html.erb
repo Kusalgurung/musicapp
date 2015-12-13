@@ -6,7 +6,7 @@
   <h1>There are no artists currently in this genre</h1>
 <% else %>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Artist Image</th>
@@ -21,7 +21,7 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr id='<%="artist_#{artist.id}"%>'>
-        <td> <a href="/artists/<%= artist.id %>"><%= image_tag artist.artist_img.url(:artist_index)%></a></td>
+        <td> <a href="/artists/<%= artist.id %>"><%= image_tag artist.artist_img.url(:artist_index), class: "artist"%></a></td>
         <td><%= link_to artist.title, artist %></td>
         <td><%= artist.biography %></td>
         <td><%= link_to artist.genre.name, artist %></td>

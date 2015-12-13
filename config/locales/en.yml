@@ -3,8 +3,9 @@ en:
   app_title: "Musify"
   home: 
     home: 
-      title: Musify
-      welcome: "A place to keep and share your music collection!"
+      title: Welcome to Musify!
+      welcome: "Store and Share your music collection with Musify."
+      message: Sign up and start building your own music collection. 
       show: Show
     contact: 
       contact_us: "Complete the following form to get in touch with us."

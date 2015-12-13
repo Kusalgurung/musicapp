@@ -11,13 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213030824) do
+ActiveRecord::Schema.define(version: 20151213054841) do
 
   create_table "albums", force: :cascade do |t|
     t.integer  "artist_id"
-    t.string   "title",      null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title",                  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "album_img_file_name"
+    t.string   "album_img_content_type"
+    t.integer  "album_img_file_size"
+    t.datetime "album_img_updated_at"
   end
 
   add_index "albums", ["artist_id"], name: "index_albums_on_artist_id"

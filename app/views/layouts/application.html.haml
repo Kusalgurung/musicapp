@@ -13,17 +13,14 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
+    = render 'shared/header'
 
   %body
-
-    = render 'shared/header'
-    
-    - flash.each do |key, value|
-      = content_tag :div, content_tag(:p, value), id: "#{key}" unless value.blank?
     
     %p.notice= notice
     %p.alert= alert
 
-    = yield
+    .container
+      = yield
 
     = render 'shared/footer'

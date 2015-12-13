@@ -10,7 +10,7 @@
   <%= @album.title %>
 </p>
 
-<table>
+<table class="table">
 	<% @album.tracks.each do |track| %>
 	  <tr id='<%="track_#{track.id}"%>'>
 		<td><%= link_to track.title, track %></td>
