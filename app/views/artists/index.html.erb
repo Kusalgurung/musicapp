@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>List of Artists</h1>
+<h1 class="current-genre"><%= params[:genre]%></h1>
+
+<% if @artists.count == 0 %>
+  <h1>There are no artists currently in this genre</h1>
+<% else %>
 
 <table>
   <thead>
@@ -27,5 +31,8 @@
   </tbody>
 </table>
 
-<br>
+<% end %>
+
+
+
 

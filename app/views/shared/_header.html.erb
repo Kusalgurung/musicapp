@@ -22,9 +22,9 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Genres<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <% Genre.all.each do |genre|%>
-            <li>
-              <%= link_to genre.name, artists_path(genre: genre.name), class: "link"%>
-            </li>
+              <li>
+                <%= link_to genre.name, artists_path(genre: genre.name), class: "link"%>
+              </li>
             <% end %>
           </ul>
         </li>      
