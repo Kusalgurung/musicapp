@@ -1,4 +1,4 @@
-<%= simple_form_for @artist do |f| %>
+<%= simple_form_for @artist, :html => { :multipart => true }  do |f| %>
 
   <%= select_tag(:genre_id, options_for_select(@genre), :prompt => "Select a Genre") %>
   <%= f.input :title, label: "Artist Name: " %>

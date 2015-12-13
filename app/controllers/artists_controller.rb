@@ -4,7 +4,12 @@ class ArtistsController < ApplicationController
   # GET /artists
   # GET /artists.json
   def index
-    @artists = Artist.all.order("created_at DESC")
+    if params[:genre].blank?
+      @artists = Artist.all.order("created_at DESC")
+    else
+      @genre_id = Genre.find_by(name: params[:genre]).id
+      @artists = Artist.where(:genre_id => @genre_id).order("created_at DESC")
+    end
   end
 
   # GET /artists/1
@@ -20,6 +25,7 @@ class ArtistsController < ApplicationController
 
   # GET /artists/1/edit
   def edit
+    @genre = Genre.all.map{ |g| [g.name, g.id]}
   end
 
   # POST /artists
@@ -43,6 +49,7 @@ class ArtistsController < ApplicationController
   # PATCH/PUT /artists/1.json
   def update
     respond_to do |format|
+      @artist.genre_id = params[:genre_id]
       if @artist.update(artist_params)
         format.html { redirect_to @artist, notice: 'Artist was successfully updated.' }
         format.json { render :show, status: :ok, location: @artist }
