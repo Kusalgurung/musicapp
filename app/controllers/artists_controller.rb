@@ -15,6 +15,7 @@ class ArtistsController < ApplicationController
   # GET /artists/new
   def new
     @artist = current_user.artists.build
+    @genre = Genre.all.map{ |g| [g.name, g.id]}
   end
 
   # GET /artists/1/edit
@@ -25,6 +26,7 @@ class ArtistsController < ApplicationController
   # POST /artists.json
   def create
     @artist = current_user.artists.build(artist_params)
+    @artist.genre_id = params[:genre_id]
 
     respond_to do |format|
       if @artist.save
@@ -70,6 +72,6 @@ class ArtistsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artist_params
-      params.require(:artist).permit(:title, :biography)
+      params.require(:artist).permit(:title, :biography, :genre_id)
     end
 end
