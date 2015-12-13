@@ -9,6 +9,7 @@
 <table>
   <thead>
     <tr>
+      <th>Artist Image</th>
       <th>Title</th>
       <th>Biography</th>
       <th>Genre</th>
@@ -20,6 +21,7 @@
   <tbody>
     <% @artists.each do |artist| %>
       <tr id='<%="artist_#{artist.id}"%>'>
+        <td> <a href="/artists/<%= artist.id %>"><%= image_tag artist.artist_img.url(:artist_index)%></a></td>
         <td><%= link_to artist.title, artist %></td>
         <td><%= artist.biography %></td>
         <td><%= link_to artist.genre.name, artist %></td>
