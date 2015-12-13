@@ -16,15 +16,16 @@
 			<% @artist.albums.each do |album| %>
 			  <tr id='<%="album_#{album.id}"%>'>
 					<td><%= link_to album.title, album %></td>
-					<td><%= link_to 'Show',album %></td>
-			        <td><%= link_to 'Edit', edit_album_path(album) %></td>
-					<td><%= link_to 'Destroy',album, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+					<td><%= link_to 'Show',album , class: "btn btn-default"%></td>
+			        <td><%= link_to 'Edit', edit_album_path(album), class: "btn btn-default" %></td>
+					<td><%= link_to 'Destroy',album, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true , class: "btn btn-default"%></td>
 			  </tr>
 			  <%end%>
-		</table> 
+		</table>
+
+		<p><%= link_to 'Add Album', new_album_path(artist_id: @artist), class: "btn btn-default" %></p>
+
 	</div>
 </div>
 
-<p><%= link_to 'Add Album', new_album_path(artist_id: @artist) %></p>
-
-<%= link_to 'Back', artists_path %>
+<%= link_to 'Back', artists_path , class: "btn btn-default"%>

@@ -15,12 +15,12 @@
   <tbody>
     <% @tracks.each do |track| %>
       <tr>
-        <td><%= link_to track.album.artist.title, artists_path(track) %></td>
-        <td><%= link_to track.album.title, track %></td>
+        <td><%= track.album.artist.title %></td>
+        <td><%= track.album.title %></td>
         <td><%= link_to track.title, track %></td>
-        <td><%= link_to 'Show', track %></td>
-        <td><%= link_to 'Edit', edit_track_path(track) %></td>
-        <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', track, class: "btn btn-default"  %></td>
+        <td><%= link_to 'Edit', edit_track_path(track), class: "btn btn-default"  %></td>
+        <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +28,4 @@
 
 <br>
 
-<%= link_to 'Back', albums_path %>
+<%= link_to 'Back', albums_path, class: "btn btn-default"  %>

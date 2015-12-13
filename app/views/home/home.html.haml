@@ -1,8 +1,9 @@
-%h1= t('.title')
-%h2= t('.welcome')
-%h3= t('.message')
+%div
+	%h1= t('.title')
+	%h2= t('.welcome')
+	%h3= t('.message')
 
-%p List of Albums currently on Musify: 
+%strong List of Albums currently on Musify: 
 %table.table 
 	%thead
 		%tr
@@ -13,7 +14,8 @@
 			%tr
 				%td= album.title 
 				%td= album.artist.title
-				%td= link_to t('.show'),album 
+				%td= link_to t('.show'),album, class: "btn btn-default" 
+				
 				
 		  
 
