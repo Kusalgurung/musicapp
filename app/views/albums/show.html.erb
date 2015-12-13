@@ -15,8 +15,12 @@
 	  <tr id='<%="track_#{track.id}"%>'>
 		<td><%= link_to track.title, track %></td>
 		<td><%= link_to 'Show',track %></td>
-		<td><%= link_to 'Edit', edit_track_path(track) %></td>
-		<td><%= link_to 'Destroy',track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+		<% if user_signed_in? %>
+	        <% if @artist_user_id == current_user.id %>
+				<td><%= link_to 'Edit', edit_track_path(track) %></td>
+				<td><%= link_to 'Destroy',track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+			<% end %>
+	        <% end %>
 	  </tr>
 	  <%end%>
 </table> 

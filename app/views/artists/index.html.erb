@@ -13,12 +13,16 @@
 
   <tbody>
     <% @artists.each do |artist| %>
-      <tr>
+      <tr id='<%="artist_#{artist.id}"%>'>
         <td><%= link_to artist.title, artist %></td>
         <td><%= artist.biography %></td>
         <td><%= link_to 'Show', artist %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist) %></td>
-        <td><%= link_to 'Destroy', artist, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? %>
+          <% if @artist.user_id == current_user.id %>
+            <td><%= link_to 'Edit', edit_artist_path(artist) %> </td> 
+            <td><%= link_to 'Destroy',artist, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true %></td>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -26,5 +30,3 @@
 
 <br>
 
-<%= link_to 'New Artist', new_artist_path %>
-<%= link_to 'back', root_path %>
