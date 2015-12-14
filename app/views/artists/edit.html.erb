@@ -1,14 +1,16 @@
-<h1>Editing Artist</h1>
+<h1> <%= t('.edit_artist') %></h1>
 
 <%= simple_form_for @artist, :html => { :multipart => true } do |f| %>
   <%= f.select :genre_id, @genre %>
   <%= f.file_field :artist_img%>
-  <%= f.input :title, label: "Artist Name: " %>
+  <%= f.input :title, label: t('.artist_name') %>
   <%= f.input :biography %>
  
   <%= f.button :submit %>
 
 <% end %>
 
-<%= link_to 'Show', @artist, class: "btn btn-default" %> 
-<%= link_to 'Back', artists_path, class: "btn btn-default" %>
+<%= link_to t('.show'), @artist, class: "btn btn-default" %> 
+<%= link_to t('.back'), artists_path, class: "btn btn-default" %>
+
+<!-- The form is not rendered when user wants to edit. This is because select genre should load the genre of the artist that requires changing. Rendering a form would not have made this possible -->

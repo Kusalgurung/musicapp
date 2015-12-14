@@ -1,10 +1,10 @@
 <p>
-  <strong>Artist:</strong>
+  <strong><%= t('.artist') %></strong>
   <%= @album.artist.title %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.title')%></strong>
   <%= @album.title %>
 </p>
 
@@ -12,11 +12,13 @@
 	<% @album.tracks.each do |track| %>
 	  <tr id='<%="track_#{track.id}"%>'>
 		<td><%= link_to track.title, track %></td>
-		<td><%= link_to 'Show',track, class: "btn btn-default" %></td>
+
+		<!-- Only the user with the same user id as the current user id will be able to edit and destroy the tracks belonging to an album -->
+
 		<% if user_signed_in? %>
 	        <% if track.album.artist.user_id == current_user.id %>
-				<td><%= link_to 'Edit', edit_track_path(track), class: "btn btn-default" %></td>
-				<td><%= link_to 'Destroy',track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true, class: "btn btn-default" %></td>
+				<td><%= link_to t('.edit_track'), edit_track_path(track), class: "btn btn-default" %></td>
+				<td><%= link_to t('.destroy_track'),track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true, class: "btn btn-default" %></td>
 			<% end %>
 	        <% end %>
 	  </tr>
@@ -25,10 +27,10 @@
 
 <% if user_signed_in? %>
 	<% if @album.artist.user_id == current_user.id %>
-		<%= link_to 'Add Track', new_track_path(album_id: @album), class: "btn btn-default" %> |
-		<%= link_to 'Edit', edit_album_path(@album), class: "btn btn-default" %> |
+		<%= link_to t('.add_track'), new_track_path(album_id: @album), class: "btn btn-default" %> |
+		<%= link_to t('.edit_album'), edit_album_path(@album), class: "btn btn-default" %> |
 	<% end %>
 <% end %>
 
 
-<%= link_to 'Back', albums_path, class: "btn btn-default" %>
+<%= link_to t('.back'), albums_path, class: "btn btn-default" %>

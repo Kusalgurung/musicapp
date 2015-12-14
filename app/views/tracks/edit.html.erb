@@ -1,6 +1,6 @@
-<h1>Editing Track</h1>
+<h1><%= t('.edit_track') %></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @track, class: "btn btn-default"  %> |
-<%= link_to 'Back', tracks_path, class: "btn btn-default"  %>
+<%= link_to t('.show'), @track, class: "btn btn-default"  %> |
+<%= link_to t('.back'), tracks_path, class: "btn btn-default"  %>

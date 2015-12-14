@@ -6,7 +6,16 @@ en:
       title: Welcome to Musify!
       welcome: "Store and Share your music collection with Musify."
       message: Sign up and start building your own music collection. 
-      show: Show
+      artist: "List of Artists currently on Musify:"
+      album: "List of Albums currently on Musify:"
+      track: "List of Tracks currently on Musify:"
+      artist_h1: "Artist"
+      album_h1: "Album"
+      artist_h2: "Artist"
+      track_h1: "Track"
+      album_h2: "Album"
+      artist_h3: "Artist"
+
     contact: 
       contact_us: "Complete the following form to get in touch with us."
       email: "Email:"
@@ -22,3 +31,100 @@ en:
     request_contact:
       no_email: You must supply an email address!
       email_sent: Thank you. We will be in touch shortly.
+
+  artists:
+    _form:
+      select_genre: "Select a Genre"
+      artist_name: "Artist Name: "
+    edit: 
+      edit_artist: "Editing Artist"
+      artist_name: "Artist Name: "
+      show: Show
+      back: Back
+    index:
+      h1: "There are no artists currently in this genre."
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      artist_image: "Artist Image"
+      artist_title: "Title"
+      artist_bio: "Biography"
+      artist_genre: "Genre"
+    new:
+      new_artist: "New Artist"
+      back: "Back"
+    show:
+      artist_title: "Title: "
+      artist_bio: "Biography: "
+      album: "Albums: " 
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+      add_album: "Add Album"
+      back: "Back"
+
+  albums:
+    edit:
+      edit_album: "Editing Album"
+      show: "Show"
+      back: "Back"
+    index:  
+      list_album: "List of Albums"
+      album_image: "Album Image"
+      artist: "Artist"
+      title: "Title"
+      show: "Show"
+      edit: "Edit"
+      destroy: "Destroy"
+    new:
+      new_album: "New Album"
+      back: "Back"
+    show:
+      artist: "Artist:"
+      title: "Title:"
+      edit_track: "Edit"
+      destroy_track: "Destroy"
+      add_track: "Add Track"
+      edit_album: "Edit Album"
+      back: "Back"
+
+  tracks:
+    edit:
+      edit_track: "Editing Track"
+      show: "Show"
+      back: "Back"
+    index:
+      list_track: "List of Tracks"
+      artist: "Artist"
+      album: "Album"
+      title: "Title"
+      edit: "Edit"
+      destroy: "Destroy"
+      back: "Back"
+    new:
+      new_track: "New Track"
+      back: "Back"
+    show:
+      album_title: "Album:"
+      track_title: "Title"
+      edit: "Edit"
+      back: "Back"
+  contact_mailer:
+    contact_email:
+      message: "Could you get in touch with me please?"
+  shared:
+    header:
+      musify: "Musify"
+      artists: "Artists"
+      albums: "Albums"
+      tracks: "Tracks"
+      contact_us: "Contact Us"
+      sign_up: "Sign Up"
+      profile: "Profile"
+      sign_out: "Sign Out"
+      sign_in: "Sign In"
+      new_artist: "New Artist"
+
+
+
+

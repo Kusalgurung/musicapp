@@ -1,10 +1,10 @@
-<h1>List of Albums</h1>
+<h1><%= t('.list_album')%></h1>
 <table class="table">
   <thead>
     <tr>
-      <th>Album Image</th>
-      <th>Artist</th>
-      <th>Title</th>
+      <th><%=t('.album_image')%></th>
+      <th><%=t('.artist')%></th>
+      <th><%=t('.title')%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,11 +15,14 @@
         <td> <a href="/albums/<%= album.id %>"><%= image_tag album.album_img.url(:album_index), class: "artist"%></a></td>
         <td><%= album.artist.title%></td>
         <td><%= album.title %></td>
-        <td><%= link_to 'Show', album, class: "btn btn-default" %></td>
+        <td><%= link_to t('.show'), album, class: "btn btn-default" %></td>
+
+        <!-- A user with the same album user id as the current user id is allowed to edit and delete the albums or only the show page link will be visible -->
+
         <% if user_signed_in?%>
           <% if current_user.id == album.artist.user_id %>
-            <td><%= link_to 'Edit', edit_album_path(album), class: "btn btn-default" %></td>
-            <td><%= link_to 'Destroy', album, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, class: "btn btn-default"%></td>
+            <td><%= link_to t('.edit'), edit_album_path(album), class: "btn btn-default" %></td>
+            <td><%= link_to t('.destroy'), album, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true, class: "btn btn-default"%></td>
             <%end%>
         <%end%>    
       </tr>  
@@ -28,5 +31,3 @@
 </table>
 
 <br>
-
-<%= link_to 'Back', artists_path %>

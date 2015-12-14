@@ -1,19 +1,22 @@
 <nav class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
-      <%= link_to "Musify", root_path, class: "navbar-brand" %>
+      <%= link_to t('.musify'), root_path, class: "navbar-brand" %>
     </div>
     <ul class="nav navbar-nav">
-      <li> <%= link_to "Artists", artists_path %> </li>
-      <li> <%= link_to "Albums", albums_path %> </li>
-      <li> <%= link_to "Tracks", tracks_path %> </li>
-      <li> <%= link_to "Contact Us", contact_path %> </li>
-      <li> <%= link_to "Sign Up", new_user_registration_path %> </li>
+      <li> <%= link_to t('.artists'), artists_path %> </li>
+      <li> <%= link_to t('.albums'), albums_path %> </li>
+      <li> <%= link_to t('.tracks'), tracks_path %> </li>
+      <li> <%= link_to t('.contact_us'), contact_path %> </li>
+      <li> <%= link_to t('.sign_up'), new_user_registration_path %> </li>
+
+      <!-- if the user is signed in then a profile and signout links will appear on the navigation bar or else a signout button will appear -->
+
       <% if user_signed_in? %>
-        <li><%= link_to "Profile", edit_user_registration_path %></li>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to t('.profile'), edit_user_registration_path %></li>
+        <li><%= link_to t('.sign_out'), destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li> <%= link_to "Sign In", new_user_session_path %> </li> 
+        <li> <%= link_to t('.sign_in'), new_user_session_path %> </li> 
       <% end %>
     </ul>
 
@@ -30,9 +33,11 @@
           </ul>
         </li>      
 
+      <!-- This is the right hand side of the navigation bar. A new artist can only be created when a user is signed in -->
+
       <% if user_signed_in? %>
         <li><%= current_user.email %></li>
-        <li> <%= link_to "New Artist", new_artist_path%> </li>
+        <li> <%= link_to t('.new_artist'), new_artist_path%> </li>
         
       <% end %>
     

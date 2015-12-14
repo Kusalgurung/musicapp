@@ -1,6 +1,6 @@
-<h1>Editing Album</h1>
+<h1><%= t('.edit_album')%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @album, class: "btn btn-default" %> |
-<%= link_to 'Back', albums_path, class: "btn btn-default" %>
+<%= link_to t('.show'), @album, class: "btn btn-default" %> |
+<%= link_to t('.back'), albums_path, class: "btn btn-default" %>

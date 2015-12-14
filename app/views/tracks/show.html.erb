@@ -1,19 +1,19 @@
 <p>
-  <strong>Album:</strong>
+  <strong><%= t('.album_title')%></strong>
   <%= @track.album.title %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong><%= t('.track_itle')%></strong>
   <%= @track.title %>
 </p>
 
 
 <% if user_signed_in? %>
 	<% if @track.album.artist.user_id == current_user.id %>
-		<%= link_to 'Edit', edit_track_path(@track), class: "btn btn-default"  %> |
+		<%= link_to t('.edit'), edit_track_path(@track), class: "btn btn-default"  %> |
 	<% end %>
 <% end %>
 
-<%= link_to 'Back', tracks_path, class: "btn btn-default"  %>
+<%= link_to t('.back'), tracks_path, class: "btn btn-default"  %>
 

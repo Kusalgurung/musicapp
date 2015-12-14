@@ -4,31 +4,38 @@
 	</div>
 	<div class="col-md-8">
 		<p>
-		  <strong>Title:</strong>
+		  <strong><%= t('.artist_title') %></strong>
 		  <%= @artist.title %>
 		</p>
 		<p>
-		  <strong>Biography:</strong>
+		  <strong><%= t('.artist_bio') %></strong>
 		  <%= @artist.biography %>
 		</p>
-		<p> Albums: </p>
+		<p> <%= t('.album') %></p>
 		<table class="table">
 			<% @artist.albums.each do |album| %>
 			  <tr id='<%="album_#{album.id}"%>'>
 					<td><%= album.title%></td>
-					<td><%= link_to 'Show',album , class: "btn btn-default"%></td>
+					<td><%= link_to t('.show'),album , class: "btn btn-default"%></td>
+
+					<!-- A user will be able to edit adn destroy only if their user id matches the current user id -->
+
 					<% if user_signed_in?%>
 						<% if @artist.user_id == current_user.id %>
-					        <td><%= link_to 'Edit', edit_album_path(album), class: "btn btn-default" %></td>
-							<td><%= link_to 'Destroy',album, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true , class: "btn btn-default"%></td>
+					        <td><%= link_to t('.edit'), edit_album_path(album), class: "btn btn-default" %></td>
+							<td><%= link_to t('.destroy'),album, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true , class: "btn btn-default"%></td>
+							<!--  The album is destroyed remotely and the table data is hidden. -->
+
 						<% end %>
 					<% end %>
 			  </tr>
 			  <%end%>
 		</table>
+
+		<!-- Again the user id of the artist has to be equal to the current user id to add a album to an artist -->
 		<% if user_signed_in?%>
 			<% if @artist.user_id == current_user.id %>	
-				<p><%= link_to 'Add Album', new_album_path(artist_id: @artist), class: "btn btn-default" %></p>
+				<p><%= link_to t('.add_album'), new_album_path(artist_id: @artist), class: "btn btn-default" %></p>
 			<%end%>
 		<%end%>
 
@@ -36,4 +43,4 @@
 	</div>
 </div>
 
-<%= link_to 'Back', artists_path , class: "btn btn-default"%>
+<%= link_to t('.back'), artists_path , class: "btn btn-default"%>

@@ -10,22 +10,22 @@
 
 .row
 	.col-md-2			
-		%strong List of Artists currently on Musify: 
+		%strong= t('.artist') 
 		%table.table 
 			%thead 
 				%tr
-					%th Artist
+					%th= t('.artist_h1') 
 			%tbody
 				- @artists.each do |artist| 
 					%tr
 						%td= artist.title 
 	.col-md-4
-		%strong List of Albums currently on Musify: 
+		%strong= t('.album')   
 		%table.table 
 			%thead
 				%tr
-					%th Album
-					%th Artist
+					%th= t('.album_h1') 
+					%th= t('.artist_h2') 
 			%tbody
 				- @albums.each do |album| 
 					%tr
@@ -33,13 +33,13 @@
 						%td= album.artist.title
 
 	.col-md-6
-		%strong List of Tracks currently on Musify: 
+		%strong= t('.track') 
 		%table.table 
 			%thead
 				%tr
-					%th Track
-					%th Album
-					%th Artist
+					%th= t('.track_h1') 
+					%th= t('.album_h2') 
+					%th= t('.artist_h3') 
 			%tbody
 				- @tracks.each do |track| 
 					%tr

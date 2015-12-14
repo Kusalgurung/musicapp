@@ -1,5 +1,9 @@
-<h1>New Artist</h1>
+<h1><%=t('.new_artist')%></h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', artists_path , class: "btn btn-default"%>
+<!-- form is rendered here from _form.html.erb -->
+
+<%= link_to t('.back'), artists_path , class: "btn btn-default"%>
+
+
