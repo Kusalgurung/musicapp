@@ -1,8 +1,6 @@
 <h1>Editing Artist</h1>
 
 <%= simple_form_for @artist, :html => { :multipart => true } do |f| %>
-
-
   <%= f.select :genre_id, @genre %>
   <%= f.file_field :artist_img%>
   <%= f.input :title, label: "Artist Name: " %>

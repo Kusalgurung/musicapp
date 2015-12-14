@@ -14,7 +14,7 @@
 		<td><%= link_to track.title, track %></td>
 		<td><%= link_to 'Show',track, class: "btn btn-default" %></td>
 		<% if user_signed_in? %>
-	        <% if @artist_user_id == current_user.id %>
+	        <% if track.album.artist.user_id == current_user.id %>
 				<td><%= link_to 'Edit', edit_track_path(track), class: "btn btn-default" %></td>
 				<td><%= link_to 'Destroy',track, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true, class: "btn btn-default" %></td>
 			<% end %>
@@ -23,6 +23,12 @@
 	  <%end%>
 </table> 
 
-<%= link_to 'Add Track', new_track_path(album_id: @album), class: "btn btn-default" %> |
-<%= link_to 'Edit', edit_album_path(@album), class: "btn btn-default" %> |
+<% if user_signed_in? %>
+	<% if @album.artist.user_id == current_user.id %>
+		<%= link_to 'Add Track', new_track_path(album_id: @album), class: "btn btn-default" %> |
+		<%= link_to 'Edit', edit_album_path(@album), class: "btn btn-default" %> |
+	<% end %>
+<% end %>
+
+
 <%= link_to 'Back', albums_path, class: "btn btn-default" %>

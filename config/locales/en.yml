@@ -16,7 +16,7 @@ en:
       enter_telephone: Enter your telephone number
       message: "Message:"
       name: "Name:"
-      submit: Contact Us
+      submit: Submit
       telephone: "Telephone:"
       title: Contact Us
     request_contact:

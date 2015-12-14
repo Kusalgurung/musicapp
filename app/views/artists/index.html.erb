@@ -20,12 +20,16 @@
     <% @artists.each do |artist| %>
       <tr id='<%="artist_#{artist.id}"%>'>
         <td> <a href="/artists/<%= artist.id %>"><%= image_tag artist.artist_img.url(:artist_index), class: "artist"%></a></td>
-        <td><%= link_to artist.title, artist %></td>
+        <td><%= artist.title %></td>
         <td><%= artist.biography %></td>
-        <td><%= link_to artist.genre.name, artist %></td>
+        <td><%= artist.genre.name %></td>
         <td><%= link_to 'Show', artist, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-default" %> </td> 
-        <td><%= link_to 'Destroy',artist, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true, class: "btn btn-default" %></td>
+        <% if user_signed_in?%>
+          <% if current_user.id == artist.user_id %>
+            <td><%= link_to 'Edit', edit_artist_path(artist), class: "btn btn-default" %> </td> 
+            <td><%= link_to 'Destroy',artist, :method => :delete, :data => { :confirm => 'Are you sure?' }, :remote => true, class: "btn btn-default" %></td>
+          <% end %>
+        <% end %>     
       </tr>
     <% end %>
   </tbody>

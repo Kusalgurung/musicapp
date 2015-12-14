@@ -1,45 +1,52 @@
-%div
+.row
 	%h1= t('.title')
+
 	%h2= t('.welcome')
+
 	%h3= t('.message')
 
-			
-%strong List of Artists currently on Musify: 
-%table.table 
-	%thead
-		%tr
-			%th Artist
-	%tbody
-		- @artists.each do |artist| 
-			%tr
-				%td= artist.title 
+- 2.times do
+	%br
 
-%strong List of Albums currently on Musify: 
-%table.table 
-	%thead
-		%tr
-			%th Album
-			%th Artist
-	%tbody
-		- @albums.each do |album| 
-			%tr
-				%td= album.title 
-				%td= album.artist.title
+.row
+	.col-md-2			
+		%strong List of Artists currently on Musify: 
+		%table.table 
+			%thead 
+				%tr
+					%th Artist
+			%tbody
+				- @artists.each do |artist| 
+					%tr
+						%td= artist.title 
+	.col-md-4
+		%strong List of Albums currently on Musify: 
+		%table.table 
+			%thead
+				%tr
+					%th Album
+					%th Artist
+			%tbody
+				- @albums.each do |album| 
+					%tr
+						%td= album.title 
+						%td= album.artist.title
 
-%strong List of Tracks currently on Musify: 
-%table.table 
-	%thead
-		%tr
-			%th Track
-			%th Album
-			%th Artist
-	%tbody
-		- @tracks.each do |track| 
-			%tr
-				%td= track.title 
-				%td= track.album.title
-				%td= track.album.artist.title
-				
+	.col-md-6
+		%strong List of Tracks currently on Musify: 
+		%table.table 
+			%thead
+				%tr
+					%th Track
+					%th Album
+					%th Artist
+			%tbody
+				- @tracks.each do |track| 
+					%tr
+						%td= track.title 
+						%td= track.album.title
+						%td= track.album.artist.title
+					
 				
 				
 		  

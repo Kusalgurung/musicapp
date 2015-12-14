@@ -17,8 +17,12 @@
         <td><%= track.album.title %></td>
         <td><%= link_to track.title, track %></td>
         <td><%= link_to 'Show', track, class: "btn btn-default"  %></td>
-        <td><%= link_to 'Edit', edit_track_path(track), class: "btn btn-default"  %></td>
-        <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %></td>
+        <% if user_signed_in?%>
+          <% if current_user.id == track.album.artist.user_id %>
+            <td><%= link_to 'Edit', edit_track_path(track), class: "btn btn-default"  %></td>
+            <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default"  %></td>
+          <%end%>
+        <%end%>
       </tr>
     <% end %>
   </tbody>

@@ -2,7 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-form label, form input {
-display: block;
-margin: 10px;
+.row{
+	h1{
+	text-align: center;
+	color: #e74c3c;
+	}
+	h2, h3{
+	text-align: center;
+	}
+	p{
+		text-align: center;
+	}
 }
