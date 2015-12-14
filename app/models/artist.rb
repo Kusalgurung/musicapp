@@ -1,4 +1,9 @@
 class Artist < ActiveRecord::Base
+
+#artist belongs to a user and a genre. 
+#a artist can have many albums and are dependent on artist
+#validation are set on title and genre so that user has to include these details
+
 	belongs_to :user
 	belongs_to :genre
 	has_many :albums, dependent: :destroy

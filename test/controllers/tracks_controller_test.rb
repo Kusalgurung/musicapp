@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class TracksControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @track = tracks(:one)
     @album = albums(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -19,7 +22,7 @@ class TracksControllerTest < ActionController::TestCase
 
   test "should create track" do
     assert_difference('Track.count') do
-      post :create, track: { album_id: @album, title: @track.title }
+      post :create, track: { album_id: @album, title: @track.title + " create" }
     end
 
     assert_redirected_to track_path(assigns(:track))
@@ -36,7 +39,7 @@ class TracksControllerTest < ActionController::TestCase
   end
 
   test "should update track" do
-    patch :update, id: @track, track: { album_id: @track.album_id, title: @track.title }
+    patch :update, id: @track, track: { album_id: @album, title: @track.title }
     assert_redirected_to track_path(assigns(:track))
   end
 

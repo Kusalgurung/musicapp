@@ -1,8 +1,11 @@
 require 'test_helper'
 
 class ArtistsControllerTest < ActionController::TestCase
+  include Devise::TestHelpers
   setup do
     @artist = artists(:one)
+    @user = users(:one)
+    sign_in @user
   end
 
   test "should get index" do
@@ -18,7 +21,7 @@ class ArtistsControllerTest < ActionController::TestCase
 
   test "should create artist" do
     assert_difference('Artist.count') do
-      post :create, artist: { biography: @artist.biography, title: @artist.title }
+      post :create, artist: { biography: @artist.biography, title: @artist.title + " create"}
     end
 
     assert_redirected_to artist_path(assigns(:artist))

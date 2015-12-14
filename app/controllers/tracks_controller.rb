@@ -3,28 +3,25 @@ class TracksController < ApplicationController
   before_action :set_album, only: [:new, :create]
   before_action :authenticate_user!
   
-  # GET /tracks
-  # GET /tracks.json
+
   def index
     @tracks = Track.all.order("created_at DESC")
   end
 
-  # GET /tracks/1
-  # GET /tracks/1.json
+
   def show
   end
 
-  # GET /tracks/new
+
   def new
     @track = @album.tracks.new
   end
 
-  # GET /tracks/1/edit
+
   def edit
   end
 
-  # POST /tracks
-  # POST /tracks.json
+
   def create
     @track = @album.tracks.new(track_params)
 
@@ -39,8 +36,7 @@ class TracksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /tracks/1
-  # PATCH/PUT /tracks/1.json
+
   def update
     respond_to do |format|
       if @track.update(track_params)
@@ -53,8 +49,7 @@ class TracksController < ApplicationController
     end
   end
 
-  # DELETE /tracks/1
-  # DELETE /tracks/1.json
+
   def destroy
     @track.destroy
     respond_to do |format|
@@ -65,12 +60,11 @@ class TracksController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    
     def set_track
       @track = Track.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def track_params
       params.require(:track).permit(:album_id, :title)
     end

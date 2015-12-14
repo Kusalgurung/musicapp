@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
   
   def home
+    #in order to display all track, album and artist in homepage.
     @tracks = Track.all;
     @albums = Album.all
     @artists = Artist.all

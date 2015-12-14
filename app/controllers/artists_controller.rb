@@ -1,36 +1,35 @@
 class ArtistsController < ApplicationController
   before_action :set_artist, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user! #user has to be signed in in order to access artists
 
-  # GET /artists
-  # GET /artists.json
+
   def index
+    #if the genre is not selected then all the artists will be displayed
     if params[:genre].blank?
       @artists = Artist.all.order("created_at DESC")
     else
+      #else when a genre is selected only the artist belonging to that genre is displayed
       @genre_id = Genre.find_by(name: params[:genre]).id
       @artists = Artist.where(:genre_id => @genre_id).order("created_at DESC")
     end
   end
 
-  # GET /artists/1
-  # GET /artists/1.json
+
   def show
   end
 
-  # GET /artists/new
+
   def new
+    #crete a artist and assign it to the current user and also the genre of the artist
     @artist = current_user.artists.build
     @genre = Genre.all.map{ |g| [g.name, g.id]}
   end
 
-  # GET /artists/1/edit
   def edit
     @genre = Genre.all.map{ |g| [g.name, g.id]}
   end
 
-  # POST /artists
-  # POST /artists.json
+
   def create
     @artist = current_user.artists.build(artist_params)
     @artist.genre_id = params[:genre_id]
@@ -46,8 +45,6 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /artists/1
-  # PATCH/PUT /artists/1.json
   def update
     respond_to do |format|
       @artist.genre_id = params[:genre_id]
@@ -61,8 +58,7 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # DELETE /artists/1
-  # DELETE /artists/1.json
+
   def destroy
     @artist.destroy
     respond_to do |format|
@@ -73,12 +69,11 @@ class ArtistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_artist
       @artist = Artist.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    #all the artist fields are permitted 
     def artist_params
       params.require(:artist).permit(:title, :biography, :genre_id, :artist_img)
     end
